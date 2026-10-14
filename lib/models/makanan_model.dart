@@ -3,7 +3,8 @@ class MakananModel {
   String hargaMakanan;
   String imageUrl;
   String deskripsiMakanan;
-  int ratingMakanan;
+  double ratingMakanan;
+  int jumlahPembeli;
 
   MakananModel({
     required this.namaMakanan,
@@ -11,5 +12,6 @@ class MakananModel {
     required this.imageUrl,
     required this.deskripsiMakanan,
     required this.ratingMakanan,
+    required this.jumlahPembeli,
   });
 }
