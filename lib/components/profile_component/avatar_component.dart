@@ -16,7 +16,6 @@ class AvatarComponent extends StatelessWidget {
           color: const Color(0xFF0B1014), 
           width: 3,
         ),
-        
         image: DecorationImage(
           image: NetworkImage(imageUrl),
           fit: BoxFit.cover,

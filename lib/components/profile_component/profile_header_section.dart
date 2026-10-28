@@ -1,5 +1,3 @@
-
-
 import 'package:aplikasi_list_makanan/components/profile_component/avatar_component.dart';
 import 'package:aplikasi_list_makanan/components/profile_component/doodle_background_component.dart';
 import 'package:aplikasi_list_makanan/components/profile_component/status_bubble_component.dart';
@@ -19,11 +17,18 @@ class ProfileHeaderSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 290, 
+      height: 290,
       child: Stack(
         alignment: Alignment.topCenter,
         children: [
-          const DoodleBackgroundComponent(height: 220),
+          Container(
+            width: double.infinity,
+            height: 220,
+            child: Image.asset(
+              'assets/images/background_wa.jpg',
+              fit: BoxFit.cover,
+            ),
+          ),
 
           const SafeArea(
             child: Padding(

@@ -12,10 +12,9 @@ class ProfilePage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-           
             const ProfileHeaderSection(
               statusText: 'Hari ini dalam emoji...',
-              imageUrl: 'https://picsum.photos/200',
+              imageUrl: 'assets/images/pfp_wa.jpeg',
             ),
 
             const SizedBox(height: 12),
@@ -26,7 +25,7 @@ class ProfilePage extends StatelessWidget {
             ),
 
             const SizedBox(height: 20),
-            
+
             const MenuTileComponent(
               icon: Icons.diamond_outlined,
               title: 'Langganan',
