@@ -12,6 +12,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        padding: EdgeInsets.only(top: 50),
         height: 200,
         margin: EdgeInsets.all(5),
         child: ListView.builder(

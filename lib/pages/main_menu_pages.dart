@@ -33,7 +33,7 @@ class MainMenuPages extends StatelessWidget {
               ),
           ],
         ),
-      ),
+      ),  
     );
   }
 }
