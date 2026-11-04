@@ -12,14 +12,8 @@ class AvatarComponent extends StatelessWidget {
       height: 125,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        border: Border.all(
-          color: const Color(0xFF0B1014), 
-          width: 3,
-        ),
-        image: DecorationImage(
-          image: NetworkImage(imageUrl),
-          fit: BoxFit.cover,
-        ),
+        border: Border.all(color: const Color(0xFF0B1014), width: 3),
+        image: DecorationImage(image: AssetImage(imageUrl), fit: BoxFit.cover),
       ),
     );
   }

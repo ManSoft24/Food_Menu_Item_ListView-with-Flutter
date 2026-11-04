@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: AppColors.scaffoldBackground,
       ),
-      initialRoute: Routes.menu_drawer,
+      initialRoute: Routes.login_clone,
       getPages: Routes.pages,
     );
   }

@@ -1,4 +1,3 @@
-
 import 'package:aplikasi_list_makanan/menus/history.dart';
 import 'package:aplikasi_list_makanan/menus/home.dart';
 import 'package:aplikasi_list_makanan/menus/profile.dart';
@@ -12,5 +11,5 @@ class MainMenuControllers extends GetxController {
     selectedIndex.value = index;
   }
 
-  List<Widget> ListPage = [HomePage(), ProfilePage(), HistoryPage()];
+  List<Widget> ListPage = [HomePage(), HistoryPage(), ProfilePage()];
 }
