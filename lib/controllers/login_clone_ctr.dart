@@ -1,3 +1,4 @@
+import 'package:aplikasi_list_makanan/models/login_model.dart';
 import 'package:aplikasi_list_makanan/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,6 +9,8 @@ import 'dart:convert';
 class LoginCloneCtr extends GetxController {
   TextEditingController txtUsername = TextEditingController();
   TextEditingController txtPassword = TextEditingController();
+
+  var loginModel = Rxn<LoginModel>();
 
   var isLoading = false.obs;
 
@@ -33,15 +36,16 @@ class LoginCloneCtr extends GetxController {
 
         if (response.statusCode == 200) {
           final data = jsonDecode(response.body);
-          if (data['status'] == true) {
+          loginModel.value = loginModelFromJson(response.body);
+          if (loginModel.value?.status == true) {
             Get.snackbar(
-              data['message'],
+              'Login Berhasil',
               'Selamat Datang ' + txtUsername.text.toString(),
             );
             Get.offNamed(Routes.main_menu);
             debugPrint("berhasil");
           } else {
-            Get.snackbar('Error', 'Username atau Password salah');
+            Get.snackbar('Error', 'Login Gagal Username/Password Salah');
             debugPrint("gagal");
             txtUsername.clear();
             txtPassword.clear();

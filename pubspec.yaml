@@ -37,6 +37,8 @@ dependencies:
   fl_chart: ^1.2.0 
   get: ^4.7.3
   http: ^1.6.0
+  intl: ^0.20.3
+
   
 
 dev_dependencies:

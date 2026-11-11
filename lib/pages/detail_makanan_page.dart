@@ -27,7 +27,6 @@ class DetailMakananPage extends StatelessWidget {
           nama: controller.namaMakanan,
           rating: controller.ratingMakanan,
           deskripsi: controller.deskripsiMakanan,
-          jumlahPembeli: controller.jumlahPembeli,
           imageUrl: controller.imageUrl,
         ),
       ),

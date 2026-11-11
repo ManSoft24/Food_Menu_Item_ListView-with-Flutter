@@ -1,47 +1,39 @@
 import "package:get/get.dart";
-import "package:aplikasi_list_makanan/models/makanan_model.dart";
+import "package:aplikasi_list_makanan/models/makanans_model.dart";
+import 'package:flutter/material.dart';
+import "package:http/http.dart" as http;
 
 class HomeControllers extends GetxController {
-  RxList<MakananModel> listMakanan = [
-    MakananModel(
-      namaMakanan: "Nasi Goreng Katsu",
-      hargaMakanan: "15.000",
-      imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ5ojCQRp7hzNsnJAh-2DObQCN19oGAVDK-Qgv160ZAA&s=10",
-      deskripsiMakanan: "Nasi goreng katsu adalah hidangan nasi goreng yang disajikan dengan potongan daging katsu yang renyah di atasnya. Katsu biasanya terbuat dari daging ayam atau babi yang digoreng dengan tepung roti, memberikan tekstur yang gurih dan renyah. Hidangan ini sering disajikan dengan saus tonkatsu atau saus sambal untuk menambah cita rasa.",
-      ratingMakanan: 4,
-      jumlahPembeli: 121,
-    ),
-    MakananModel(
-      namaMakanan: "Mie Goreng",
-      hargaMakanan: "13.000",
-      imageUrl: "https://awsimages.detik.net.id/community/media/visual/2024/08/14/resep-mie-goreng-udang-teriyaki_43.jpeg?w=1200",
-      deskripsiMakanan: "Mie goreng adalah hidangan mie yang digoreng dengan bumbu dan topping sesuai selera.",
-      ratingMakanan: 4,
-      jumlahPembeli: 98,
-    ),
-    MakananModel(
-      namaMakanan: "Nasi Padang",
-      hargaMakanan: "15.000",
-      imageUrl: "https://awsimages.detik.net.id/community/media/visual/2020/07/06/nasi-padang.jpeg?w=600&q=90",
-      deskripsiMakanan: "Nasi padang adalah nasi yang disajikan dengan berbagai macam lauk pauk khas Padang.",
-      ratingMakanan: 4.5,
-      jumlahPembeli: 156,
-    ),
-    MakananModel(
-      namaMakanan: "Ayam Serundeng Sambal Bawang",
-      hargaMakanan: "10.000",
-      imageUrl: "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/93edf08d-185b-4a73-a6a8-0da9e78e1dc6_Go-Biz_20230909_230034.jpeg",
-      deskripsiMakanan: "Ayam serundeng sambal bawang adalah hidangan ayam yang dimasak dengan serundeng dan sambal bawang.",
-      ratingMakanan: 4,
-      jumlahPembeli: 87,
-    ),
-    MakananModel(
-      namaMakanan: "Ayam Geprek Sambal Ijo",
-      hargaMakanan: "10.000",
-      imageUrl: "https://assets.unileversolutions.com/recipes-v2/230947.jpg",
-      deskripsiMakanan: "Ayam geprek sambal ijo adalah hidangan ayam yang digeprek dan disajikan dengan sambal ijo.",
-      ratingMakanan: 5,
-      jumlahPembeli: 203,
-    ),
-  ].obs;
+  final RxList<Datum> makananList = <Datum>[].obs;
+
+  var isLoading = false.obs;
+
+  @override
+  void onInit() {
+    super.onInit();
+    makanan();
+  }
+
+  void makanan() async {
+    try {
+      isLoading.value = true;
+
+      final url = Uri.parse(
+        'https://randomapi.dev/api/products?category=food&maxPrice=100&count=5',
+      );
+
+      final response = await http.get(url);
+
+      if (response.statusCode == 200) {
+        final data = makanansModelFromJson(response.body);
+        makananList.assignAll(data.data);
+      } else {
+        debugPrint('Failed with status code: ${response.statusCode}');
+      }
+    } catch (e) {
+      debugPrint('Error fetching data: $e');
+    } finally {
+      isLoading.value = false;
+    }
+  }
 }

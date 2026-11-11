@@ -3,12 +3,15 @@ import 'package:aplikasi_list_makanan/components/profile_component/profile_heade
 import 'package:aplikasi_list_makanan/components/profile_component/profile_identity_component.dart';
 import 'package:flutter/material.dart';
 
+import '../app_colors.dart';
+
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.scaffoldBackground,
       body: SingleChildScrollView(
         child: Column(
           children: [

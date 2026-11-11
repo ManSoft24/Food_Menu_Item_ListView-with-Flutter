@@ -9,7 +9,6 @@ class CardDetail extends StatelessWidget {
   final String nama;
   final String deskripsi;
   final double rating;
-  final int jumlahPembeli;
   final String imageUrl;
 
   const CardDetail({
@@ -18,7 +17,6 @@ class CardDetail extends StatelessWidget {
     required this.nama,
     required this.rating,
     required this.deskripsi,
-    required this.jumlahPembeli,
     required this.imageUrl,
   });
 
@@ -80,7 +78,7 @@ class CardDetail extends StatelessWidget {
                       style: TextStyle(fontSize: 16, color: Colors.grey),
                     ),
                     Text(
-                      ' (${jumlahPembeli} pembeli)',
+                      ' (1K+ pembeli)',
                       style: TextStyle(fontSize: 16, color: Colors.grey),
                     ),
                   ],
